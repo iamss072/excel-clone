@@ -28,6 +28,13 @@ body{
     display: inline-block;
     margin: 0.5rem;
 }
+.cellprop-actions-cont > *:hover{
+    cursor: pointer;
+    background-color: #f1f2f6;
+}
+/* .cellprop-actions-cont > span:hover{
+    background-color: #f1f2f6;
+} */
 .cellprop-actions-cont > select{
     border: none;
     border-radius: 2px;
@@ -152,6 +159,22 @@ body{
     width: 4.5rem;
     border: 1px solid rgb(224, 223, 223);
     outline: none;
-    display: flex;
-    align-items: center;
+
+}
+.cell:hover{
+    border: #39a76a solid 2px;
+    /* cursor: cell; */
+}
+
+.color-prop{
+    position: relative;
+}
+
+.color-prop > input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
