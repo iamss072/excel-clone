@@ -108,7 +108,28 @@ body{
     /* background-color: aqua; */
     position: relative;
     overflow: scroll;
+    /* scrollbar-width: thin; */
 }
+/* custom scrollbar */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+  
 .top-left-dummy-box{
     height: 1.6rem;
     width: 1.6rem;
