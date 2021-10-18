@@ -31,7 +31,21 @@ formulaBar.addEventListener("keydown",(e)=>{
             removeChildFromParent(cellProp.formula);
         }
 
+        addChildToGraphComponent(inputFormula,adress);
+
+        //check formula is cyclic or not then evaluate
+        //true denotes cycle and false denotes not cyclic
+        let isCyclic=isGraphCyclic();
+
+        if(isCyclic === true){
+            alert("Your formula is cyclic");
+            removeChildFromGraphComponent(inputFormula,adress);
+            return;
+        }
+
         let evaluatedValue=evaluateFormula(inputFormula);
+
+        
 
         setcellUIAndCellProp(evaluatedValue,inputFormula,adress); //to update UI and cell prop in DB
 
@@ -53,6 +67,8 @@ function addChildToParent(formula){
     }
 }
 
+
+
 function removeChildFromParent(formula){
     let childAdress=adressBar.value;
     let encodedFormula=formula.split(" ");
@@ -62,6 +78,32 @@ function removeChildFromParent(formula){
             let [parentCell,parentCellProp]=getCellAndCellProp(encodedFormula[i]);
             let idx=parentCellProp.children.indexOf(childAdress);
             parentCellProp.children.splice(idx,1);
+        }
+    }
+}
+
+function addChildToGraphComponent(formula, childAdress){
+    let[crid,ccid]=decodeRIDCIDFromAdress(childAdress);
+    let encodedFormula=formula.split(" ");
+    for(let i=0;i<encodedFormula.length;i++){
+        let asciiValue=encodedFormula[i].charCodeAt(0);
+        if(asciiValue>=65 && asciiValue<=90){
+            let[prid,pcid]=decodeRIDCIDFromAdress(encodedFormula[i]);
+            //B1 : A1 + 10
+            graphComponentMatrix[prid][pcid].push([crid,ccid]);
+        }
+    }
+}
+
+function removeChildFromGraphComponent(formula,childAdress){
+    let[crid,ccid]=decodeRIDCIDFromAdress(childAdress);
+    let encodedFormula=formula.split(" ");
+    for(let i=0;i<encodedFormula.length;i++){
+        let asciiValue=encodedFormula[i].charCodeAt(0);
+        if(asciiValue>=65 && asciiValue<=90){
+            let[prid,pcid]=decodeRIDCIDFromAdress(encodedFormula[i]);
+            
+            graphComponentMatrix[prid][pcid].pop();//removes only last one causing cycle that was intially pushed
         }
     }
 }
