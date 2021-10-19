@@ -31,10 +31,10 @@ function isGraphCyclic(){
         for(let j=0;j<cols;j++){
             if(visited[i][j]===true) continue;
             let ans=dfsCycleDetection(graphComponentMatrix, i , j,visited,dfsVisited);
-            if(ans===true) return true;
+            if(ans===true) return [i,j];
         }
     }
-    return false;
+    return null;
 }
 
 function dfsCycleDetection(graphComponentMatrix, srcr , srcc,visited,dfsVisited){
