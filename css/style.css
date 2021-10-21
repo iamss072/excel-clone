@@ -89,18 +89,47 @@ body{
 .sheet-add-icon{
     width: 2vw;
 }
+.sheet-add-icon:hover{
+    cursor: pointer;
+}
 .sheets-folder-cont{
     display: flex;
     align-items: center;
     height: 80%;
     width: calc(100vw - 2vw);
-
+    overflow: auto;
 }
+.sheets-folder-cont::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .sheets-folder-cont {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 
 .sheet-folder{
+    height: 90%;
     text-decoration: underline;
     font-weight: bold;
     text-decoration-thickness: 2px;
+    font-size: 0.9rem;
+    /* background-color: lightblue; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3%;
+}
+
+.sheet-folder:hover{
+    cursor: default;
+}
+
+.sheet-content{
+    width: 5rem;
+    /* background-color: lightgreen; */
 }
 
 .grid-cont{

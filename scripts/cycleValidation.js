@@ -1,14 +1,16 @@
+let collectedGraphComponent=[];
+
 // Storage-> 2D matrix
 let graphComponentMatrix=[];
 
-for(let i=0;i<rows;i++){
-    let row=[];
-    for(let j=0;j<cols;j++){
-        //to push children of a particular cell
-        row.push([]);
-    }
-    graphComponentMatrix.push(row);
-}
+// for(let i=0;i<rows;i++){
+//     let row=[];
+//     for(let j=0;j<cols;j++){
+//         //to push children of a particular cell
+//         row.push([]);
+//     }
+//     graphComponentMatrix.push(row);
+// }
 
 //true denotes cycle and false denotes not cyclic
 

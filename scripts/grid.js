@@ -41,7 +41,3 @@ function addListenerForAddressBarDisplay(cell,i,j){
         adressBar.value=val;
     })
 }
-
-//by default click on first cell
-let firstCell=document.querySelector(".cell");
-firstCell.click();
