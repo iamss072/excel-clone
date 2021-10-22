@@ -14,8 +14,12 @@ body{
     padding-left: 1rem;
 }
 .page-action{
-    margin: 0.5rem;
+    padding: 0.5rem;
     color: #f1f2f6;
+}
+.selected-page-action{
+    background-color: #f1f2f6;
+    color: #1e9c57;
 }
 .cellprop-actions-cont{
     height: 3rem;

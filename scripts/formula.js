@@ -6,7 +6,7 @@ for(let i=0;i<rows;i++){
             let[activeCell,cellProp] = getCellAndCellProp(adress);
             let enteredData = activeCell.innerText;
 
-            if(enteredData === cellProp.value) return;
+            if(enteredData == cellProp.value) return;
 
             cellProp.value=enteredData;
             //if data modified remove P-C relation , formula empty , update children with hardcoded value
